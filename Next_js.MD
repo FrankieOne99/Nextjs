@@ -130,7 +130,10 @@ Gestisce gli errori nell'applicazione. Se si verifica un errore in un component,
 
 ### Middleware
 
-Il middleware in Next.js è una funzionalità che ti permette di eseguire logica personalizzata prima che una richiesta raggiunga la rotta di destinazione. In altre parole, il middleware agisce come una sorta di "filtro" che e può eseguire operazioni come il controllo delle autorizzazioni, la gestione dei cookie, il reindirizzamento, l'analisi delle richieste, la gestione della sessione etc. Il file middleware va inserito nella cartella principale del progetto "src".
+Il middleware in Next.js è una funzionalità che ci permette di eseguire logica personalizzata prima che una richiesta raggiunga una rotta di destinazione. In altre parole, il middleware agisce come una sorta di "filtro" che e può eseguire operazioni come il controllo delle autorizzazioni, la gestione dei cookie, il reindirizzamento, l'analisi delle richieste, la gestione della sessione etc.
+Il file middleware va inserito nella cartella principale del progetto "src".
+
+All'interno del Middleware è necessario inserire una funzione di configurazione detta "matcher" che ci permette di indicare su quali pagine della nostra applicazione il middleware deve agire. Senza di ciò, il middleware verrebbe invocato ogni volta che refreshamo o cambiamo pagina all'interno del nostro sito.
 
 ### Next Auth
 
