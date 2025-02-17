@@ -47,7 +47,8 @@ Abbiamo definito nextjs un framework fullstack, poichè è capace di gestire sia
 
 - Scrivere direttamente la logica di backend. Nei file del progetto è presente la cartella "api". Queste API possono essere usate per gestire richieste, interagire con database, inviare email, ecc., senza L'uso di un backend separato.
 
-- Recuperare e manipolare i dati da un database o API esterne utilizzando le server actions.
+- Recuperare e manipolare i dati da un database o API esterne utilizzando le server actions. Questi file presentano la direttiva "use server" e vengono eseguiti SOLO lato server.
+  Pertanto sono privati e non è possibile accedervi dall'esterno.
 
 In sostanza, è possibile realizzare in un unico progetto (senza quindi la necessità di crearne un altro per il backend) un applicazione perfettamente funzionante che presenta in un UNICA repository sia codice di frontend che di backend.
 
@@ -111,7 +112,7 @@ Il file page.js è il file principale che definisce una pagina in Next.js. Ogni 
 
 ### Layout
 
-il file layout.js viene utilizzato per definire un layout condiviso per più pagine o sezioni dell'applicazione. È utile quando desideri avere una struttura comune (come intestazioni, piè di pagina, sidebar, navbar, ecc.) che venga ripetuta su diverse pagine.
+il file layout.js viene utilizzato per definire un layout condiviso per più pagine o sezioni dell'applicazione. Si trova nell'app router e sostituisce i file \_app e \_document(presenti nel pages router). È utile quando desideri avere una struttura comune (come intestazioni, piè di pagina, sidebar, navbar, ecc.) che venga ripetuta su diverse pagine.
 In next è possibile creare Layout annidati. E' sufficiente creare il proprio Layout (come component) e aggiungerlo alle pagine in cui desideriamo sia presente--> per aggiungerlo a tutte le pagine basta inserirlo nel file di layout principale.
 
 ### Loading
@@ -188,9 +189,9 @@ Se voglio creare un layout per tutte le pagine della mia applicazione ad eccezio
 
 ### ROUTE API
 
-Si tratta di rotte pubbliche, che possono essere chiamate da servizi esterni per integrazioni. Possiamo quindi creare delle API integrate direttamente al nostro progetto.
+Si tratta di rotte pubbliche, che possono essere chiamate da servizi esterni per integrazioni. Si tratta di API integrate direttamente al nostro progetto.
 
-E' sufficiente creare all'interno della cartella del progetto una cartella chiamata "api" e poi un file "route.ts" . Qui possiamo creare le nostre funzioni (GET, POST ETC.) che potranno essere utilizzate all'interno del nostro progetto.
+Nel routes pages bisognava inserire questi file nella cartella "api" e darli il nome che volevamo. Nell'app router invece, possiamo inserire il file delle Api dove vogliamo, ma dobbiamo rinominarlo "route.js" Qui possiamo creare le nostre funzioni (GET, POST ETC.) che potranno essere utilizzate all'interno del nostro progetto.
 Le differenze sostanziali, tra le server action e che le route API sono pubbliche, e sono sopratutto SERVERLESS.
 
 ## CLIENT E SERVER COMPONENT
